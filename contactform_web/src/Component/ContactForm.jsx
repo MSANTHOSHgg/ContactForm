@@ -22,13 +22,13 @@ const ContactUs = () => {
     let formErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-    if (!formData.name) formErrors.name = 'Name is required.';
+    if (!formData.name) formErrors.name = 'Name is required';
     if (!formData.email) {
-      formErrors.email = 'Email is required.';
+      formErrors.email = 'Email is required';
     } else if (!emailRegex.test(formData.email)) {
-      formErrors.email = 'Invalid email address.';
+      formErrors.email = 'Invalid email address';
     }
-    if (!formData.message) formErrors.message = 'Message is required.';
+    if (!formData.message) formErrors.message = 'Message is required';
 
     return formErrors;
   };
@@ -39,7 +39,7 @@ const ContactUs = () => {
 
     if (Object.keys(formErrors).length === 0) {
       try {
-        await axios.post('http://localhost:3001/newfeedbacks', formData);
+        await axios.post('http://localhost:3001/contactform', formData);
 
         toast.success('Message sent successfully!', {
           position: 'top-right',
@@ -123,7 +123,7 @@ const ContactUs = () => {
         <h3>Our Contact Information</h3>
         <ul>
           <li>Phone: +91 8778676679</li>
-          <li>Email: contact@delish.com</li>
+          <li>Email: contact@form.com</li>
           <li>Address: 123 Gourmet Street, Food City, India</li>
         </ul>
       </div>

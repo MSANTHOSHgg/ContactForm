@@ -1,4 +1,4 @@
-// import './App.css'
+import './App.css'
 import ContactForm from './Component/contactform'
 
 function App() {
