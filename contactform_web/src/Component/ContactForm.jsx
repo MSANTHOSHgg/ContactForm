@@ -4,6 +4,10 @@ import axios from 'axios';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import sendimg from '../assets/send.png'
+import contactimg from '../assets/Phone.png'
+import emailimg from '../assets/email.png'
+import locationimg from '../assets/location.png'
+import bgimg from '../assets/bg-01.jpg'
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -75,67 +79,84 @@ const ContactUs = () => {
   function copyToClipboard() {
     const phoneNumber = document.getElementById("phoneNumber").innerText;
     navigator.clipboard.writeText(phoneNumber)
-      toast.success("Phone number copied");
+    toast.success("Phone number copied!", {
+      position: 'top-right',
+      autoClose: 2000, 
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      theme: 'light',
+      transition: Slide,
+   });
   }
 
   return (
     <div className="contact-form">
-      <h1>Contact Us</h1>
-      <p>We would love to hear from you! Please fill out the form below to get in touch.</p>
+      <div className='contact-container'>
+        <div className='contact-left'>
+          <h1>Contact Us</h1>
+          <div className="contact-info">
+            <ul>
+              <li id='phoneNumber' onClick={copyToClipboard}><div><img src={contactimg}  alt="Phone icon"/><h3>Let's Talk</h3></div>+91 8778676679</li>
+              <li><div><img src={emailimg} alt="Email icon" /><h3>General Support</h3></div><a href="mailto:contact@gmail.com" id="emailLink">contact@gmail.com</a></li>
+              <li><div><img src={locationimg} alt="Location icon" /><h3>Address</h3></div>123 Gourmet Street, Food City, India</li>
+            </ul>
 
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder='Enter your name'
-            value={formData.name}
-            onChange={handleChange}
-          />
-          {errors.name && <span className="error">{errors.name}</span>}
+          </div>
+
         </div>
+        <div className='contact-right'>
 
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder='ex: contact@gmail.com'
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <span className="error">{errors.email}</span>}
+          <p>We would love to hear from you! Please fill out the form below to get in touch.</p>
+
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder='Enter your name'
+                value={formData.name}
+                onChange={handleChange}
+              />
+              {errors.name && <span className="error">{errors.name}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder='ex: contact@gmail.com'
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && <span className="error">{errors.email}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Message:</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder='Describe here...'
+                rows="8"
+                value={formData.message}
+                onChange={handleChange}
+              />
+              {errors.message && <span className="error">{errors.message}</span>}
+            </div>
+            <div className='submitdiv'>
+              <button type="submit" className='submitbtn'><img src={sendimg} alt='' className='sendicon' />Send Message</button>
+            </div>
+          </form>
+
+
         </div>
-
-        <div className="form-group">
-          <label htmlFor="message">Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder='Describe here...'
-            rows="4"
-            value={formData.message}
-            onChange={handleChange}
-          />
-          {errors.message && <span className="error">{errors.message}</span>}
-        </div>
-
-        <button type="submit" className='submitbtn'><img src={sendimg} alt='' className='sendicon' />Send Message</button>
-      </form>
-
-      <div className="contact-info">
-        <h3>Our Contact Information</h3>
-        <ul>
-          <li id='phoneNumber' onClick={copyToClipboard}>Phone: +91 8778676679 <p id='copyMessage' style={{display:"None"}}>copied</p></li>
-          {/* <li>Email: contact@form.com</li> */}
-          <li><a href="mailto:contact@gmail.com" id="emailLink">Email: contact@gmail.com</a></li>
-          <li>Address: 123 Gourmet Street, Food City, India</li>
-        </ul>
       </div>
-
       <ToastContainer />
     </div>
   );
