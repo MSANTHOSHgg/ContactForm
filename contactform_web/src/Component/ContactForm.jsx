@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './ContactForm.css';
 import axios from 'axios';
 import { ToastContainer, toast, Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import 'react-toastify/dist/ReactToastify.css';
+import sendimg from '../assets/send.png'
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -71,6 +72,12 @@ const ContactUs = () => {
     }
   };
 
+  function copyToClipboard() {
+    const phoneNumber = document.getElementById("phoneNumber").innerText;
+    navigator.clipboard.writeText(phoneNumber)
+      toast.success("Phone number copied");
+  }
+
   return (
     <div className="contact-form">
       <h1>Contact Us</h1>
@@ -116,14 +123,15 @@ const ContactUs = () => {
           {errors.message && <span className="error">{errors.message}</span>}
         </div>
 
-        <button type="submit">Send Message</button>
+        <button type="submit" className='submitbtn'><img src={sendimg} alt='' className='sendicon' />Send Message</button>
       </form>
 
       <div className="contact-info">
         <h3>Our Contact Information</h3>
         <ul>
-          <li>Phone: +91 8778676679</li>
-          <li>Email: contact@form.com</li>
+          <li id='phoneNumber' onClick={copyToClipboard}>Phone: +91 8778676679 <p id='copyMessage' style={{display:"None"}}>copied</p></li>
+          {/* <li>Email: contact@form.com</li> */}
+          <li><a href="mailto:contact@gmail.com" id="emailLink">Email: contact@gmail.com</a></li>
           <li>Address: 123 Gourmet Street, Food City, India</li>
         </ul>
       </div>
