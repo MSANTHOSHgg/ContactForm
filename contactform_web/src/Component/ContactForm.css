@@ -64,7 +64,6 @@ body {
 .contact-info li {
     margin: 15px 0;
     color: #fff;
-    cursor: pointer;
     transition: color 0.3s ease;
 }
 
@@ -78,6 +77,8 @@ body {
     text-align: start;
     margin-bottom: 30px;
     font-weight: 600;
+    cursor: pointer;
+    max-width: fit-content;
 }
 
 .contact-info a {
@@ -87,6 +88,7 @@ body {
 
 .contact-info p:hover {
     color: #ff6347;
+    transform: scale(1.1);
 }
 
 .contact-info img {
@@ -115,6 +117,10 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+}
+
+.form-group:hover {
+    transform: scale(1.01);
 }
 
 .form-group label {
@@ -147,6 +153,7 @@ body {
     color: #ff6347;
     font-size: 0.85rem;
     margin-top: 5px;
+    font-weight: 500;
 }
 
 .submitdiv {
@@ -178,6 +185,76 @@ body {
     background-color: #e5533d;
 }
 
+.zoom img {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.zoom img:hover {
+    transform: scale(1.2);
+}
+
+.messagediv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border: 1px solid tomato;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 800px;
+    height: auto;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff6347;
+}
+
+.close-button:hover {
+    transform: scale(1.2);
+}
+
+.modal-overlay textarea {
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.modal-overlay textarea:focus {
+    border-color: #ff6347;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column-reverse;
@@ -198,19 +275,21 @@ body {
         flex-direction: column;
         text-align: center;
     }
+
     .contact-form input,
     textarea {
         font-size: 16px;
     }
 
-    .contact-left{
+    .contact-left {
         padding: 0;
     }
+
     .contact-left h1 {
         font-size: 1.5rem;
     }
 
-    .contact-info{
+    .contact-info {
         margin-top: 10px;
     }
 
@@ -221,7 +300,12 @@ body {
     .contact-info li div img {
         max-width: 20px;
     }
+
+    .zoom {
+        display: none;
+    }
 }
+
 @media (max-width: 480px) {
     .contact-form {
         margin: 10px;
