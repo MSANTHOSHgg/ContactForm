@@ -50,6 +50,7 @@ body {
 .contact-left h1 {
     font-size: 2rem;
     margin-bottom: 20px;
+    color: #f96950;
 }
 
 .contact-info {
@@ -137,7 +138,7 @@ body {
     font-size: 1rem;
 }
 
-.form-group textarea{
+.form-group textarea {
     resize: vertical;
     min-height: 200px;
 }
@@ -199,66 +200,68 @@ body {
     transform: scale(1.2);
 }
 
-                                    .messagediv {
-                                        display: flex;
-                                        justify-content: space-between;
-                                        align-items: center;
-                                    }
+.messagediv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-                                    .modal-overlay {
-                                        position: fixed;
-                                        top: 0;
-                                        left: 0;
-                                        right: 0;
-                                        bottom: 0;
-                                        background-color: rgba(0, 0, 0, 0.5);
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: center;
-                                        z-index: 1000;
-                                        border: 1px solid tomato;
-                                    }
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border: 1px solid tomato;
+}
 
-                                    .modal-content {
-                                        background: white;
-                                        padding: 30px;
-                                        border-radius: 8px;
-                                        width: 800px;
-                                        height: auto;
-                                        position: relative;
-                                    }
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 800px;
+    height: auto;
+    position: relative;
+}
 
-                                    .close-button {
-                                        position: absolute;
-                                        top: 10px;
-                                        right: 10px;
-                                        font-size: 1.2rem;
-                                        cursor: pointer;
-                                        background: transparent;
-                                        border: none;
-                                        font-size: 24px;
-                                        font-weight: 700;
-                                        color: #ff6347;
-                                    }
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff6347;
+}
 
-                                    .close-button:hover {
-                                        transform: scale(1.2);
-                                    }
+.close-button:hover {
+    transform: scale(1.2);
+}
 
-                                    .modal-overlay textarea {
-                                        width: 100%;
-                                        margin-top: 8px;
-                                        padding: 10px;
-                                        border-radius: 5px;
-                                        border: 1px solid #ccc;
-                                        font-size: 1rem;
-                                    }
+.modal-overlay textarea {
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    min-height: 600px;
+    min-width: 600px;
+}
 
-                                    .modal-overlay textarea:focus {
-                                        border-color: #ff6347;
-                                        outline: none;
-                                        transition: border-color 0.3s ease-in-out;
-                                    }
+.modal-overlay textarea:focus {
+    border-color: #ff6347;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
 
 @media (max-width: 768px) {
     .contact-container {
